@@ -1,1 +1,52 @@
-/* Add styles here */
+body {
+    font-family: sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+header {
+    padding: 2rem 0;
+}
+
+main {
+    padding: 2rem 0;
+}
+
+.number-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.number {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.history-section {
+    padding: 2rem 0;
+}
+
+#history-list {
+    list-style: none;
+    padding: 0;
+}
