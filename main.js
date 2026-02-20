@@ -22,8 +22,18 @@ themeToggle.addEventListener('click', () => {
     localStorage.setItem('theme', theme);
 });
 
-generateBtn.addEventListener('click', () => {
+generateBtn.addEventListener('click', async () => {
+    // UI Feedback: Disable button and show "Thinking"
+    generateBtn.disabled = true;
+    const originalText = generateBtn.textContent;
+    generateBtn.textContent = '번호 생성 중...';
+    generateBtn.classList.add('glow');
+    
     numberContainer.innerHTML = '';
+    
+    // Simulate AI "Thinking" time
+    await new Promise(resolve => setTimeout(resolve, 800));
+
     const numbers = new Set();
     while (numbers.size < 6) {
         numbers.add(Math.floor(Math.random() * 45) + 1);
@@ -31,14 +41,23 @@ generateBtn.addEventListener('click', () => {
 
     const sortedNumbers = Array.from(numbers).sort((a, b) => a - b);
 
-    sortedNumbers.forEach(number => {
-        const circle = document.createElement('div');
-        circle.classList.add('number');
-        circle.textContent = number;
-        numberContainer.appendChild(circle);
+    sortedNumbers.forEach((number, index) => {
+        setTimeout(() => {
+            const circle = document.createElement('div');
+            circle.classList.add('number');
+            circle.textContent = number;
+            numberContainer.appendChild(circle);
+            
+            // If it's the last number, restore the button
+            if (index === sortedNumbers.length - 1) {
+                generateBtn.disabled = false;
+                generateBtn.textContent = originalText;
+                generateBtn.classList.remove('glow');
+            }
+        }, index * 150); // Staggered entry animation
     });
 
     const historyItem = document.createElement('li');
     historyItem.textContent = sortedNumbers.join(', ');
-    historyList.appendChild(historyItem);
+    historyList.prepend(historyItem); // Add latest to top
 });
