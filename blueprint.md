@@ -25,6 +25,14 @@ This is a simple web application that generates random lottery numbers. It featu
 ## Current Status
 
 *   **Build Status:** Finalized and ready for preview.
-*   **Visual Enhancements:** Applied animations and AI-themed UI feedback to match the user's branding.
+*   **Visual Enhancements:** Applied AI-themed animations, "thinking" states, and a modern dark mode toggle.
 *   **Environment:** Configured for IDX preview via Python 3 server.
-*   **Deployment Status:** Ready for final Firebase Hosting deployment (Requires project selection).
+*   **Deployment Status:** Latest changes are **committed locally** but **not yet pushed** to GitHub.
+*   **Action Required:** Run `git push origin main` to trigger Cloudflare Pages deployment.
+
+## Deployment Plan
+
+1.  **Code Review:** Verify all AI features (animations, staggered entry, history tracking) are functional.
+2.  **Commit:** Changes have been committed to the `main` branch.
+3.  **Push:** Push to `origin main` to trigger the automated Cloudflare Pages build.
+4.  **Verification:** Confirm the live URL reflects the new features.
